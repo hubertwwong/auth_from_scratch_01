@@ -52,8 +52,9 @@ group :test, :developoment do
   gem 'factory_girl_rails'
   gem 'rspec-rails'
   gem 'guard-rspec'
+  gem 'database_cleaner'
 end
 
 # for user authentication
 
-'bcrypt-ruby'
+gem 'bcrypt-ruby'
