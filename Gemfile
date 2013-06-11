@@ -57,4 +57,4 @@ end
 
 # for user authentication
 
-gem 'bcrypt-ruby'
+gem 'bcrypt-ruby', :require => 'bcrypt' 

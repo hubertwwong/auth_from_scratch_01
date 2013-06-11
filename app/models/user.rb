@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   
-  attr_accessible :email, :password_digest
+  has_many :posts
+  
+  attr_accessible :email, :password, :password_confirmation, :password_digest
   
   validates_uniqueness_of :email
   validates_presence_of :email
