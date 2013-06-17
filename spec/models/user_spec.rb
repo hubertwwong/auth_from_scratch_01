@@ -49,8 +49,7 @@ describe User do
   describe 'validations:create' do
     it 'should save 1 user' do
       # creates a db user.
-      db_user1 = create(:user)
-      
+      db_user = create(:user)     
       User.find(:all).length.should == 1
     end
     
@@ -60,6 +59,16 @@ describe User do
       db_user2 = create(:user)
       
       User.find(:all).length.should == 2
+    end
+  end
+  
+  describe 'associations' do
+    before(:each) do
+      @u = User.new
+    end
+    
+    it 'has many users' do
+      @u.should respond_to(:posts)
     end
   end
   

@@ -46,9 +46,13 @@ AuthFromScratch01::Application.routes.draw do
   #     resources :products
   #   end
 
+  get 'signup', to: 'users#new', as: 'signup'
+  get 'login', to: 'sessions#new', as: 'login'
+  get 'logout', to: 'sessions#destroy', as: 'logout'
+
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'welcome#index'
+  root :to => 'posts#index'
 
   # See how all your routes lay out with "rake routes"
 
@@ -58,4 +62,5 @@ AuthFromScratch01::Application.routes.draw do
   
   resources :users, :only => [:create, :new]
   resources :sessions, :only => [:create, :destroy, :new]
+  resources :posts
 end

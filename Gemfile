@@ -56,5 +56,8 @@ group :test, :developoment do
 end
 
 # for user authentication
-
 gem 'bcrypt-ruby', :require => 'bcrypt' 
+
+# twitter bootstrap gem.
+# provide some basic css stylings.
+gem 'bootstrap-sass'
