@@ -1,0 +1,26 @@
+<div class="navbar navbar-fixed-top">
+	<div class="navbar-inner">
+		<div class="container">
+			<%= link_to "Home", root_path, :class => 'brand' %>
+
+			<% if current_user %>
+			<ul class="nav pull-right">
+				<li>
+					<p class="navbar-text">
+						<%= current_user.email %>
+					</p>
+				</li>
+				<li>
+					<%= link_to('Logout', logout_path) %>
+				</li>
+			</ul>
+			<% else %>
+				<%= form_tag sessions_path, {:class => "navbar-form pull-right"} do %>
+				<%= text_field_tag :email, params[:email] %>
+				<%= password_field_tag :password %>
+				<%= submit_tag "Log in" %>
+				<% end %>
+			<% end %>
+		</div>
+	</div>
+</div>

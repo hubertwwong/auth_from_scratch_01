@@ -1,14 +1,13 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>AuthFromScratch01</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+<!doctype html>
 
-<%= yield %>
-
-</body>
+<html>	
+  <head>
+    <%= render 'layouts/header' %>
+  </head>
+  
+  <body>
+    <%= render 'layouts/navigation' %>
+    <%= render 'layouts/main' %>
+  </body>
+  
 </html>
