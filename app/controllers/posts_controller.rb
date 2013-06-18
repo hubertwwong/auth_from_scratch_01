@@ -1,5 +1,7 @@
 class PostsController < ApplicationController
 
+  before_filter :require_login, :except => [:index]
+
   def create
   end
   
@@ -11,8 +13,8 @@ class PostsController < ApplicationController
     puts "public"
   end
   
-  # create a new post
   def new
+    @Post = Post.new
   end
   
 end

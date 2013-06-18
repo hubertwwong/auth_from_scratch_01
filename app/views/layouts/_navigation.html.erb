@@ -16,9 +16,9 @@
 			</ul>
 			<% else %>
 				<%= form_tag sessions_path, {:class => "navbar-form pull-right"} do %>
-				<%= text_field_tag :email, params[:email] %>
-				<%= password_field_tag :password %>
-				<%= submit_tag "Log in" %>
+					<%= text_field_tag :email, params[:email], {:placeholder=> "user", :class => "input-small"} %>
+					<%= password_field_tag :password, nil , {:placeholder=> "password", :class => "input-small"} %>
+					<%= submit_tag "Log in" %>
 				<% end %>
 			<% end %>
 		</div>

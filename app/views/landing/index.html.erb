@@ -1,0 +1,9 @@
+<% unless current_user %>
+	this is the main post page.<br/><br/>
+	if you want to test it out,
+	create a dummy account and test it out.
+	<br/><br/><br/>
+	<%= render "sessions/register"%>
+<% else %>
+	<%= link_to "go start posting.", :posts %>
+<% end %>
