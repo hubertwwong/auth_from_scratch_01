@@ -4,6 +4,7 @@ require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'rspec/autorun'
 require 'capybara/rspec'
+require 'capybara/rails'
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
@@ -41,6 +42,9 @@ RSpec.configure do |config|
   # this allows you not to need to use FactoryGirl.create.
   # you can just use create.
   config.include FactoryGirl::Syntax::Methods
+  
+  # controller helpers.
+  #config.include SessionHelpers, :type => :controller
   
   # DATABASE CLEANER
   config.before(:suite) do

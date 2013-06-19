@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
 
-  before_filter :require_login, :except => [:index]
+  before_filter :require_login
 
   def create
   end
@@ -10,11 +10,8 @@ class PostsController < ApplicationController
   
   # list public post.
   def index
-    puts "public"
-  end
-  
-  def new
-    @Post = Post.new
+    @post = Post.new
+    @posts = Post.where(:user_id => session[:user_id])
   end
   
 end
