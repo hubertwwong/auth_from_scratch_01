@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-feature 'post_index' do
+feature 'post_new' do
   scenario "not logged in" do
     visit '/posts'
     expect(page).to have_text('You must be logged in')
@@ -12,13 +12,15 @@ feature 'post_index' do
     #@user1 = create(:user)
     #@user1_attr = {:email => @user1.email, :password => @user1.password}
     sign_in
-    visit '/posts'
+    visit '/posts/new'
     
-    # check whats on the page.
-    expect(page).to have_text('create a new post')
-    
-    # check if new link works.
-    click_link 'create a new post'
+    # check if the page has a title and description
     expect(page).to have_text 'Title'
+    expect(page).to have_text 'Description'
+    
+    fill_in 'post_title', with: 'some title'
+    fill_in 'post_description', with: 'some description.'
+    click_button 'Create Post'
+    
   end
 end

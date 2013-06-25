@@ -53,6 +53,7 @@ group :test, :developoment do
   gem 'rspec-rails'
   gem 'guard-rspec'
   gem 'database_cleaner'
+  gem 'launchy'
 end
 
 # for user authentication

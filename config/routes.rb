@@ -56,7 +56,7 @@ AuthFromScratch01::Application.routes.draw do
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
   root :to => 'landing#index'
-
+  
   # See how all your routes lay out with "rake routes"
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.
@@ -67,4 +67,7 @@ AuthFromScratch01::Application.routes.draw do
   resources :sessions, :only => [:create, :destroy, :new]
   resources :posts
   resources :landing, :only => [:index]
+  
+  #  adding an about page to the routes
+  match 'landing/about'
 end

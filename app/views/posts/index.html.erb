@@ -1,2 +1,29 @@
-pending
-<%= render "form" %>
+<% if current_user %>
+	<div class="span9">
+		<!-- posting -->
+		<%= link_to "create a new post", new_post_path %>
+		<br/><br/>
+	</div>
+
+	<div class="span9">
+		<table>
+		  <tr>
+		    <th>Name</th>
+		    <th></th>
+		    <th></th>
+		    <th></th>
+		    <th></th>
+		  </tr>
+		
+		  <% @posts.each do |post| %>
+		  <tr>
+		    <td><%= post.title %></td>
+		    <td><%= post.description %></td>
+		    <td><%= link_to 'Show', post %></td>
+		    <td><%= link_to 'Edit', edit_post_path(post) %></td>
+		    <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+		  </tr>
+		  <% end %>
+		</table>
+	</div>
+<% end %>

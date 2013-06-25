@@ -48,17 +48,19 @@ describe User do
   
   describe 'validations:create' do
     it 'should save 1 user' do
+      initial_num_users = User.find(:all).length
       # creates a db user.
       db_user = create(:user)     
-      User.find(:all).length.should == 1
+      User.find(:all).length.should == initial_num_users + 1
     end
     
     it 'be able to save multiple items' do
       # creates a db user.
+      initial_num_users = User.find(:all).length
       db_user1 = create(:user)
       db_user2 = create(:user)
       
-      User.find(:all).length.should == 2
+      User.find(:all).length.should == initial_num_users + 2
     end
   end
   

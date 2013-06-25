@@ -3,20 +3,17 @@
 module Controllers
   
   module SessionHelpers
-    def login_default
-      # create user in db.
-      create(:user)
-      post :create, sessions: attributes_for(:user)
-      
-      #puts session
-      #puts "===="
-      #puts session[:user]
-      #puts "===="
-      #puts session[:user_id]
-      #puts "===="
-      # user = User.where(:login => user.to_s).first if user_is_a?(Symbol)
-      # request.session[:user] = user.id
-    end
+    #module UserDefault
+    #  user = nil
+    #  user_attr = nil
+    #  def create_db_user
+    #    user = create(:user)
+    #    user_attr = {:email => user.email, user => user.password}
+    #  end
+    #  def login
+    #    post :create, user_attr
+    #  end
+    #end
   end
   
 end

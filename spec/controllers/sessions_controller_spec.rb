@@ -3,6 +3,7 @@ require 'spec_helper'
 describe SessionsController do
   # create a db user so i can post to it later
   before(:all) do
+    #UserDefault.create_db_user
     @user1 = create(:user)
     @user1_attr = {:email => @user1.email, :password => @user1.password}
   end
@@ -30,7 +31,6 @@ describe SessionsController do
       context "valid attributes" do
         before(:each) do
           post :create, @user1_attr
-          #login_default
         end
         
         it "session id should not be nil" do
