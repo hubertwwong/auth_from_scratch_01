@@ -38,4 +38,34 @@ describe PostsController do
     end
   end
   
+  describe "logged in" do
+    @user = create(:user)
+    
+    describe "GET #index" do
+      before(:each) do
+        helper_login(@user)
+        get :index
+      end
+      
+      it "fooo should be fooo" do
+        fooo.should == "fooo"
+      end
+      
+      it "testing db login" do
+        UesrDefault::create_db_user
+        UesrDefault::login
+        session.should be_nil
+      end
+      
+      it "should be logged in" do
+        current_user.should be_nil
+      end
+      
+    end
+    
+    describe "GET #new" do
+      
+    end
+  end
+  
 end
