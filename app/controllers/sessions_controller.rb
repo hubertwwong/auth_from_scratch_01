@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
     #puts "u >" + user.inspect
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to root_url, :notice => "Logged in!"
+      redirect_to posts_url, :notice => "Logged in!"
     else
       flash.now[:error] = "Invalid email or password"
       render "new"
