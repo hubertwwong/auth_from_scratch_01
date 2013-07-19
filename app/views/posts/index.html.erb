@@ -1,29 +1,38 @@
 <% if current_user %>
-	<div class="span9">
-		<!-- posting -->
-		<%= link_to "create a new post", new_post_path %>
-		<br/><br/>
+	<div class="row">
+		<div class="span9">
+			<!-- posting -->
+			<%= link_to "create a new post", new_post_path %>
+			<hr/>
+		</div>
 	</div>
-
-	<div class="span9">
-		<table>
-		  <tr>
-		    <th>Name</th>
-		    <th></th>
-		    <th></th>
-		    <th></th>
-		    <th></th>
-		  </tr>
-		
-		  <% @posts.each do |post| %>
-		  <tr>
-		    <td><%= post.title %></td>
-		    <td><%= post.description %></td>
-		    <td><%= link_to 'Show', post %></td>
-		    <td><%= link_to 'Edit', edit_post_path(post) %></td>
-		    <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-		  </tr>
-		  <% end %>
-		</table>
+	
+	<% @posts.each do |post| %>
+	<div class="row">
+		<div class="span9">
+			<div class="row">
+				<div class="span7">
+					<h3><%= post.title %></h3>
+					<p><%= post.description %></p>
+				</div>
+				<div class="span2">
+					<h6>created at:</h6>
+					<p><%= post.created_at.strftime("%F") %></p>
+					<p><%= post.created_at.strftime("%I:%M %P") %></p>
+					<h6>updated at:</h6>
+					<p><%= post.updated_at.strftime("%F") %></p>
+					<p><%= post.updated_at.strftime("%I:%M %P") %></p>
+					<h6>actions:</h6>
+					<%= link_to 'Show', post %>
+					<%= link_to 'Edit', edit_post_path(post) %>
+					<%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+				</div>
+			</div>
+			<!-- adding some spacing to the bottom of the post -->
+			<br/><br/>
+		</div>
 	</div>
+	
+	<% end %>
+	  
 <% end %>
